@@ -131,7 +131,7 @@ unsigned short getSS(void);
 /* enable Possible loss of precision warning for compatibility with Borland */
 #pragma enable_message(130)
 
-#if _M_IX86 >= 300 || defined(M_I386)
+#if (_M_IX86 >= 300 || defined(M_I386)) && !defined(I386)
 #define I386
 #endif
 
@@ -184,9 +184,9 @@ We might even deal with a pre-ANSI compiler. This will certainly not compile.
 #endif
 
 #ifdef I86
-#if _M_IX86 >= 300 || defined(M_I386)
+#if (_M_IX86 >= 300 || defined(M_I386)) && !defined(I386)
 #define I386
-#elif _M_IX86 >= 100 || defined(M_I286)
+#elif (_M_IX86 >= 100 || defined(M_I286)) && !defined(I186)
 #define I186
 #endif
 #endif
